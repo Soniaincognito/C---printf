@@ -1,6 +1,6 @@
 # C---printf
 print f project
-0x11. C - printf - By Antony Muga & Nicholas Oyengo of ALX
+0x11. C - printf - By Sonia opone  & Valentine Vandiof ALX
 A collaborative project by ALX Software Engineering to implement the inbuilt printf function in c from scratch.
 
 Table of Contents
@@ -32,6 +32,5 @@ All code is betty compliant
 The manual page is present
 Authors
 Sonia opone 
-
 Valentine Vandi
 
