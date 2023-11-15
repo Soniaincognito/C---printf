@@ -66,7 +66,7 @@ int print_octal(va_list types, char buffer[],
 	while (num > 0)
 	{
 		buffer[i--] = (num % 8) + '0';
-num /= 8;
+		num /= 8;
 	}
 
 	if (flags & F_HASH && init_num != 0)
@@ -112,6 +112,7 @@ int print_hexa_upper(va_list types, char buffer[],
 	return (print_hexa(types, "0123456789ABCDEF", buffer,
 		flags, 'X', width, precision, size));
 }
+
 /************** PRINT HEXX NUM IN LOWER OR UPPER **************/
 /**
  * print_hexa - Prints a hexadecimal number in lower or upper
@@ -151,11 +152,13 @@ int print_hexa(va_list types, char map_to[], char buffer[],
 	if (flags & F_HASH && init_num != 0)
 	{
 		buffer[i--] = flag_ch;
-buffer[i--] = '0';
+		buffer[i--] = '0';
 	}
 
 	i++;
 
 	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
+	
 
+	
