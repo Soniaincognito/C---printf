@@ -1,34 +1,52 @@
 #include "main.h"
 
 /**
- * _printf - implementation of the inbuilt printf
- * @format: the format specifier
- * Return: the formated string
- */
+  *_printf - A printf function that takes in agument
+  *@format: an argument that takes char
+  *Return: A return value of a printed chars
+  */
 
 int _printf(const char *format, ...)
 {
-	int printed = 0;
+	int i;
+	int lenght = 0;
+	int x;
+	int value;
+	va_list list;
 
-	va_list args;
-
-	va_start(args, format);
-
-	while (*format != '\0')
+	va_start(list, format);
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (*format == '%')
+		if (format[i] != '%')
 		{
-			format++;
-			printed = selector(format, args, printed);
-			format++;
+			_putchar(format[i]);
 		}
-		else
+		else if (format[i + 1] == 'c')
 		{
-			_putchar(*format);
-			printed++;
-			format++;
+			_putchar(va_arg(list, int));
+			i++;
 		}
+
+		else if (format[i + 1] == 's')
+		{
+			x = string(va_arg(list, char *));
+			i++;
+			lenght += (x - 1);
+		}
+		else if (format[i + 1] == '%')
+		{
+			_putchar('%');
+			i++;
+		}
+		else if (format[i + 1] == 'd' || format[i + 1] == 'i')
+		{
+			value = integer_print(va_arg(list, int));
+			i++;
+			lenght += (value - 1);
+		}
+	lenght++;
 	}
-	va_end(args);
-	return (printed);
+	va_end(list);
+	return (lenght);
 }
+
